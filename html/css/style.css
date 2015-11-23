@@ -1,0 +1,18 @@
+/* LIST #4 */
+/* #mainlist { font-family:Georgia, Times, serif; font-size:15px; }*/
+#mainlist { font-size:15px; }
+#mainlist ul { list-style: none; padding-left: 5px; }
+#mainlist ul li { }
+
+#mainlist ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:30px;
+  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:0px; cursor:pointer; }
+
+/*
+#mainlist ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:30px;
+  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:0px; cursor:pointer; }
+*/
+#mainlist ul li a:hover { color:#FFFFFF; background-image:url(../images/hover.png); background-repeat:repeat-x; }
+#mainlist ul li a strong { margin-right:10px; }
+.area { background: #666; color: white; padding-top: 5px; padding-bottom: 5px; font-size: 18px; }
+h1 { font-size: 18px;}
+.link { display: inline; float:right; }
