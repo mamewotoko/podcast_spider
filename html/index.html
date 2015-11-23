@@ -7,19 +7,24 @@
 <!--
    <link rel="icon" href="ma.png" type="image/png" />
 -->
-   <link rel="stylesheet" href="style.css" type="text/css" />
+   <link rel="stylesheet" href="css/style.css" type="text/css" />
    <title>Podcast List</title>
 
 <script src="js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 <h1>Podcast List</h1>
+
 <div id="mainlist">
+<ul class="area">FMとやま</ul>
 <ul id="sublist"></ul>
+<ul class="area">Tokyo FM</ul>
+<ul id="sublist2"></ul>
 </div>
 
 <script>
-var data = [{"url": "http://www.fmtoyama.co.jp/contents/podcast/podcast_9.xml", "link": "http://www.fmtoyama.co.jp/contents/podcast_9.html", "title": "\u30c7\u30a4\u30ea\u30fc\u30fb\u30b3\u30e9\u30e0"},
+var data =
+ [{"url": "http://www.fmtoyama.co.jp/contents/podcast/podcast_9.xml", "link": "http://www.fmtoyama.co.jp/contents/podcast_9.html", "title": "\u30c7\u30a4\u30ea\u30fc\u30fb\u30b3\u30e9\u30e0"},
 {"url": "http://www.fmtoyama.co.jp/contents/podcast/podcast_13.xml", "link": "http://www.fmtoyama.co.jp/contents/podcast_13.html", "title": "\u300cgrace\u300d\u3000\u30ad\u30ce\u30b3\u30ec"},
 {"url": "http://www.fmtoyama.co.jp/contents/podcast/podcast_38.xml", "link": "http://www.fmtoyama.co.jp/contents/podcast_38.html", "title": "\u30a2\u30af\u30b7\u30e7\u30f3 \u30ec\u30c7\u30a3\u3000\u30b4\u30fc\u301c\u6642\u4ee3\u3092\u62d3\u304f\u5973\u6027\u305f\u3061\u301c"},
 {"url": "http://www.fmtoyama.co.jp/contents/podcast/podcast_18.xml", "link": "http://www.fmtoyama.co.jp/contents/podcast_18.html", "title": "\u5b50\u3069\u3082\u306b\u4f1d\u3048\u305f\u3044\u3000\u5bcc\u5c71\u306e\u6c11\u8a71"},
@@ -40,6 +45,25 @@ var data = [{"url": "http://www.fmtoyama.co.jp/contents/podcast/podcast_9.xml", 
 var div = $("#sublist");
 for(var i = 0; i < data.length; i++){
   $(div).append('<li><a href="'+data[i].url+'">'+data[i].title+'</a></li>');
+}
+
+var data2 = [{"url": "http://www.tfm.co.jp/podcasts/tfmvoice/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/tfmvoice/", "title": "Voice of TOKYO FM"},
+{"url": "http://www.tfm.co.jp/podcasts/future/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/future/", "title": "\u672a\u6765\u6388\u696d"},
+{"url": "http://www.tfm.co.jp/podcasts/museum/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/museum/", "title": "Tokyo Midtown presents The Lifestyle MUSEUM"},
+{"url": "http://www.tfm.co.jp/podcasts/dojo/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/dojo/", "title": "\u30a8\u30d5\u30a8\u30e0\u82b8\u8853\u9053\u5834"},
+{"url": "http://www.tfm.co.jp/podcasts/matsuda/podcast.xml", "link": "http://www.tfm.co.jp/lock/matsuda4/", "title": "JASRAC presents \u677e\u7530LOCKS!"},
+{"url": "http://www.tfm.co.jp/podcasts/hr/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/hr/", "title": "\u30a4\u30aa\u30f3 presents \u30cf\u30fc\u30c8\u30d5\u30eb\u30fb\u30ea\u30af\u30a8\u30b9\u30c8"},
+{"url": "http://www.tfm.co.jp/podcasts/avanti/podcast.xml", "link": "http://www.avanti-web.com/", "title": "SUNTORY SATURDAY WAITING BAR AVANTI"},
+{"url": "http://www.tfm.co.jp/podcasts/yuka/podcast.xml", "link": "http://www.tfm.co.jp/yuka/", "title": "\u512a\u9999\u306e\u30b3\u30b3\u30ed\u30fb\u30ab\u30e9\u30c0\u30fb\u30b2\u30f3\u30ad\u3002"},
+{"url": "http://www.tfm.co.jp/podcasts/kando/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/kando/", "title": "\u6bce\u65e5\u306b\u5922\u4e2d\u3000\u611f\u52d5\u30d7\u30ed\u30c7\u30e5\u30fc\u30b5\u30fc\u30fb\u5c0f\u6797\u7ae0\u4e00"},
+{"url": "http://www.tfm.co.jp/podcasts/ya/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/ya/", "title": "\u58f0\u512a\u587e\u3000Presents \u3042\u3079\u306a\u304c\u306e\u91ce\u671b\uff5e\u4ed6\u529b\u672c\u9858\u306e\u5909\uff5e"},
+{"url": "http://www.tfm.co.jp/podcasts/job/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/job/", "title": "\u30b7\u30e5\u30fc\u30ab\u30c4\u306e\u738b"},
+{"url": "http://www.tfm.co.jp/podcasts/premium/podcast.xml", "link": "http://www.tfm.co.jp/podcasts/premium/", "title": "TOKYO FM Premium Podcasts"}];
+
+var div = $("#sublist2");
+for(var i = 0; i < data2.length; i++){
+   $(div).append('<li><a href="'+data2[i].url+'">'+data2[i].title+'</a></li>');
+//   $(div).append('<li><div class="item"><a href="'+data2[i].url+'">'+data2[i].title+'</a><span style="float:right;"><a class="link" href="'+data2[i].link+'">link</a></span></div></li>');
 }
 </script>
 
