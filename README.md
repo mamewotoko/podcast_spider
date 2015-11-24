@@ -24,6 +24,8 @@ title, url, link of podcast xml if saved in items.json
 
 TODO
 -----
+* improve select podcast performance of html
+  * update by difference
 * add image of podcast
   * //channel/image/link
   * //channel/itunes:image/@href
