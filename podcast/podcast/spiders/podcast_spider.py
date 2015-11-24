@@ -4,11 +4,21 @@ from podcast.items import PodcastItem
 
 class PodcastSpider(scrapy.Spider):
     name = "podcast"
-    allowed_domains = ["tfm.co.jp", "fmtoyama.co.jp"]
-    start_urls = [ "http://www.tfm.co.jp/podcasts/" ]
+    allowed_domains = ["tfm.co.jp", "fmtoyama.co.jp", "tbsradio.jp"]
+#    start_urls = [ "http://www.tfm.co.jp/podcasts/" ]
 #                   "http://www.fmtoyama.co.jp/" ]
 #start_urls = [ "http://www.fmtoyama.co.jp/" ]
-    visited = []
+    start_urls = ["http://www.tbsradio.jp/pod/index.html",
+                  "http://www.tbsradio.jp/pod/category/junk/",
+                  "http://www.tbsradio.jp/pod/category/wide/",
+                  "http://www.tbsradio.jp/pod/category/culture/",
+                  "http://www.tbsradio.jp/pod/category/news/",
+                  "http://www.tbsradio.jp/pod/category/variety/",
+                  "http://www.tbsradio.jp/pod/category/sports/",
+                  "http://www.tbsradio.jp/pod/category/music/",
+                  "http://www.tbsradio.jp/pod/category/special/"
+            ]
+    visited = list(start_urls)
 
     def parse(self, response):
         self.logger.info("parse: "+response.url)
@@ -16,14 +26,14 @@ class PodcastSpider(scrapy.Spider):
         content_type = response.headers['Content-Type']
         if content_type.startswith("text/html"):
             links = response.xpath("//a/@href").extract()
-            podcast_pages = filter(lambda x: "podcast" in x, list(set(links)))
+            podcast_pages = filter(lambda x: x.endswith("xml") or "podcast" in x, list(set(links)))
             for url in podcast_pages:
                 next_url = response.urljoin(url.strip())
                 if next_url not in self.visited and not next_url.endswith(".mp3"):
-                    self.logger.info("next_podcast_pages: " + next_url)
+                    self.logger.info("next: " + next_url)
                     self.visited.append(next_url)
                     yield scrapy.Request(next_url, callback=self.parse)
-        elif content_type.startswith("application/rss+xml") or content_type.startswith("text/xml"):
+        elif content_type.startswith("application/rss+xml") or content_type.startswith("text/xml") or content_type.startswith("application/xml"):
             title = response.xpath("//channel/title/text()").extract()[0]
             link = response.xpath("//channel/link/text()").extract()[0]
             enctag = response.xpath("//enclosure")

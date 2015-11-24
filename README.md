@@ -27,6 +27,7 @@ TODO
 * add image of podcast
   * //channel/image/link
   * //channel/itunes:image/@href
+* add selected podcast url to podplayer
 
 ----
 Takashi Masuyama < mamewotoko@gmail.com >

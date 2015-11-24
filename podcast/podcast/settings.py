@@ -33,7 +33,7 @@ NEWSPIDER_MODULE = 'podcast.spiders'
 #COOKIES_ENABLED=False
 
 # Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED=False
+TELNETCONSOLE_ENABLED=False
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
@@ -83,3 +83,7 @@ NEWSPIDER_MODULE = 'podcast.spiders'
 #HTTPCACHE_DIR='httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+DOWNLOAD_DELAY=20.0
+DEPTH_LIMIT=4
+
