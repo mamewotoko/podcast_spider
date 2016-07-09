@@ -8,16 +8,7 @@ class PodcastSpider(scrapy.Spider):
 #    start_urls = [ "http://www.tfm.co.jp/podcasts/" ]
 #                   "http://www.fmtoyama.co.jp/" ]
 #start_urls = [ "http://www.fmtoyama.co.jp/" ]
-    start_urls = ["http://www.tbsradio.jp/pod/index.html",
-                  "http://www.tbsradio.jp/pod/category/junk/",
-                  "http://www.tbsradio.jp/pod/category/wide/",
-                  "http://www.tbsradio.jp/pod/category/culture/",
-                  "http://www.tbsradio.jp/pod/category/news/",
-                  "http://www.tbsradio.jp/pod/category/variety/",
-                  "http://www.tbsradio.jp/pod/category/sports/",
-                  "http://www.tbsradio.jp/pod/category/music/",
-                  "http://www.tbsradio.jp/pod/category/special/"
-            ]
+    start_urls = ["https://radiocloud.jp/"]
     visited = list(start_urls)
 
     def parse(self, response):
@@ -26,7 +17,9 @@ class PodcastSpider(scrapy.Spider):
         content_type = response.headers['Content-Type']
         if content_type.startswith("text/html"):
             links = response.xpath("//a/@href").extract()
-            podcast_pages = filter(lambda x: x.endswith("xml") or "podcast" in x, list(set(links)))
+            #
+            # radiocloud(tbs): toppage -> /archive/ -> rss
+            podcast_pages = filter(lambda x: "xml" in x or "podcast" in x or ("radiocloud" in x and "/archive/" in x), list(set(links)))
             for url in podcast_pages:
                 next_url = response.urljoin(url.strip())
                 if next_url not in self.visited and not next_url.endswith(".mp3"):
