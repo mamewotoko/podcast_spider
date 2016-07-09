@@ -10,17 +10,23 @@ Overview
   * title
   * url
 
-Install
--------
-1. install scrapy
-
 How to run
 ----------
+1. install scrapy
+2. run
 ```bash
 cd podcast
-scrapy crawl podcast -o - -t json -s DOWNLOAD_DELAY=5.0 -s LOG_LEVEL=DEBUG > items.json
+#scrapy crawl podcast -o - -t json -s DOWNLOAD_DELAY=5.0 -s LOG_LEVEL=DEBUG > items.json
+sh run.sh
 ```
 title, url, link of podcast xml if saved in items.json
+
+How to run (on docker)
+----------------------
+```bash
+cd podcast
+sh docker_run.sh
+```
 
 TODO
 -----
