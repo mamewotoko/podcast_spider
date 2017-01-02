@@ -30,6 +30,8 @@ sh docker_run.sh
 
 TODO
 -----
+* add QR code
+  * https://github.com/oostendo/python-zxing
 * improve select podcast performance of html
   * update by difference
 * add image of podcast
@@ -39,3 +41,4 @@ TODO
 
 ----
 Takashi Masuyama < mamewotoko@gmail.com >
+http://mamewo.ddo.jp/
